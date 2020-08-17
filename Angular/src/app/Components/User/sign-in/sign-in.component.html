@@ -1,0 +1,34 @@
+<div class="container2 border">
+    <div class="row subjectheader">
+        <div class="col">
+            <img src="/assets/icons/sign-in.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Sign in</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col">
+        <table>
+            <tr>
+                <td>
+                    Username:
+                </td>
+                <td>
+                    <input type="text" #usernameLogin>  
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <input type="password"  #passwordLogin>  
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <input type="button" (click)="onSubmit(usernameLogin.value,passwordLogin.value)" value="Sign In"><br/>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,57 @@
+<div class="container2 border">
+  <div class="nav row">
+    <div class="col " >
+      <img src="/assets/icons/carsearch.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Order Car</span>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col">
+
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" *ngIf="car">
+<table>
+          <tr>
+          <td>  <label for="StartDate">
+              Start Date:
+            </label></td>
+           <td> <input id="StartDate" type="date" formControlName="StartDate"></td>
+          </tr>
+        
+          <tr>
+            <td>
+            <label for="EstimatedReturnDate">
+              Estimated Return Date:
+            </label></td>
+            <td>
+            <input id="EstimatedReturnDate" type="date" formControlName="EstimatedReturnDate">
+          </td>
+        </tr>
+      
+          <tr>
+            <td>
+              <label for="UserID">
+                  User ID:
+              </label>
+            </td>
+            <td>
+              <input id="UserID" type="text" formControlName="UserID" value=user.userID disabled>
+            </td>
+            </tr>
+      
+            <tr>
+              <td>
+              <label for="CarLicenseNumber">
+                  Car License Number:
+              </label>
+            </td>
+            <td>
+              <input id="CarLicenseNumber" type="text" formControlName="CarLicenseNumber" value="{{car.CarLicenseNumber}}" disabled>
+            </td>
+            </tr>
+        
+          <button class="button" type="submit">Purchase</button>
+        </table>
+        </form>
+
+      </div>
+    </div>
+  </div> 

@@ -1,0 +1,37 @@
+<div class="row subjectheadernested" >
+  <div class="col">
+  <img src="/assets/icons/view-details.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> My Orders</span>
+ </div>
+</div>
+
+<div class="table-responsive" *ngIf="_userOrders"> 
+    <table class="table" style="font-size: 11px;">
+        <caption>Avaliable Cars</caption>
+<thead>
+<tr>
+  <th scope="col">Order ID</th>
+  <th scope="col">User ID</th>
+  <th scope="col">Car License Number</th>
+  <th scope="col">Start Date</th>
+  <th scope="col">Estimated Return Date</th>
+  <th scope="col">Return Date</th>
+
+  
+</tr>
+</thead>
+<!-- מקבל פרמטרים של CAR MODEL ^^
+    ומחזיר *מכוניות*
+-->
+<tbody>
+<tr *ngFor="let order of _userOrders">
+  <td scope="row">{{order.OrderID}}</td>
+  <td>{{order.UserID}}</td>
+  <td>{{order.CarLicenseNumber}}</td>
+  <td>{{order.StartDate}}</td>
+  <td>{{order.EstimatedReturnDate}}</td>
+  <td>{{order.ReturnDate}}</td>
+
+</tr>
+</tbody>
+    </table>
+  </div>

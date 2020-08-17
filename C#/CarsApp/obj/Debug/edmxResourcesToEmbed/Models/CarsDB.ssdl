@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CarsDB.dbo.ImageTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ImageTable">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="CarsDBModelStoreContainer">
+    <EntitySet Name="ImageTable" EntityType="Self.ImageTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ImageTable].[ImageID] AS [ImageID], 
+    [ImageTable].[ImageName] AS [ImageName]
+    FROM [dbo].[ImageTable] AS [ImageTable]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

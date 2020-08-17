@@ -1,0 +1,14 @@
+[hidden] {
+    display: none !important;
+  }
+
+.url{
+  color: white;
+}
+
+  .nav{
+    background-color:rgb(29, 27, 25);
+    color:white;
+    border: 1px solid rgba(0, 0, 0, 0.808);
+    margin: auto;
+  }

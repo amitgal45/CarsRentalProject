@@ -1,0 +1,18 @@
+
+<div class="row" >
+    <div class="col-1 background">
+        Links <br/>
+
+        <b>Users</b><br/>
+        <a [routerLink]="[{ outlets: { userpanel:['edituser'] }}]">Edit User</a> <br/> <br/>
+        <b>Orders</b><br/>
+        <a [routerLink]="[{ outlets: { userpanel:['userorders'] } }]">Get Orders</a> <br/><br/>
+
+
+
+
+    </div>
+    <div class="col">
+        <router-outlet name="userpanel"></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col subjectheadernested">
+    <img src="/assets/icons/view-details.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Edit Car</span>
+  </div>
+</div>
+<form [formGroup]="editcarForm" (ngSubmit)="onSubmit(editcarForm.value)" *ngIf="car">
+
+  <tr class="form-group">
+    <td> <label for="carmodelID">
+       Car Model ID
+     </label></td>
+     <td><input id="carmodelID" type="text" formControlName="carmodelID" disabled></td>
+   </tr>
+
+  <tr class="form-group">
+    <td>
+           <label for="CarLicenseNumber">
+             Car License Number
+           </label></td>
+    <td>       <input id="CarLicenseNumber" type="text" formControlName="CarLicenseNumber"></td>
+         </tr>
+   
+       
+     
+       <tr class="form-group">
+         <td><label for="currentKm">
+           current Km
+         </label>
+         <td><input id="currentKm" type="text" formControlName="currentKm">
+       </tr>
+   
+       <tr class="form-group">
+           <td><label for="isRentable">
+             is Rentable
+           </label>
+           <td><select id="isRentable" formControlName="isRentable" value="{{car.isRentable}}">
+               <option value="false">Not Avaliable</option>
+               <option value="true">Avaliable</option>
+              
+             
+             </select>      </tr>
+   
+         <tr class="form-group">
+           <td><label for="isDamaged">
+             is Damaged
+           </label></td>
+           <td><select id="isDamaged" formControlName="isDamaged" value="{{car.isDamaged}}">
+               <option value="false">Not Damanged</option>
+               <option value="true">Damaged</option>
+               
+   
+             </select></td>
+       
+         </tr>
+   
+         <tr class="form-group">
+          <td><label for="BranchId">
+            Branch Id
+          </label></td>
+          <td><select id="BranchId" formControlName="BranchId" >
+              <option value=1>1</option>
+              
+             
+            
+            </select></td>
+         </tr>
+         <tr>
+           <td><label for="Image">
+               Image
+           </label></td>
+           <td><img [src]="imageUrl" style="height:100px;width:100px;">
+           <input type="file" #image accept="image/*" (change)="handleFileInput($event.target.files)" value="imageUrl"></td>
+       
+         </tr>
+       
+         
+   
+      
+
+
+     
+  
+    <button class="button" type="submit">Edit Car</button>
+  
+  </form>

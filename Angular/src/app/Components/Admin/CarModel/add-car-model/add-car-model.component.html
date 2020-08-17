@@ -1,0 +1,63 @@
+<div class="row subjectheadernested" >
+  <div class="col">
+  <img src="/assets/icons/view-details.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Add Car Model</span>
+ </div>
+</div>
+
+<form [formGroup]="carModelForm" (ngSubmit)="onSubmit(carModelForm.value)">
+
+  <table>
+    
+
+    <tr class="form-group">
+      <td><label for="manufacturer">
+        Manufacturer
+      </label></td>
+      <td><input id="manufacturer" type="text" formControlName="manufacturer"></td>
+    </tr>
+  
+    <tr class="form-group">
+      <td><label for="model">
+        Model
+      </label></td>
+      <td><input id="model" type="text" formControlName="model"></td>
+    </tr>
+
+    <tr class="form-group">
+        <td><label for="dailyPrice">
+            daily Price
+        </label></td>
+        <td><input id="dailyPrice" type="text" formControlName="dailyPrice" ></td>
+      </tr>
+
+      <tr class="form-group">
+        <td><label for="dailyLateFee">
+            dailyLateFee
+        </label></td>
+        <td><input id="dailyLateFee" type="text" formControlName="dailyLateFee"></td>
+    
+      </tr>
+
+      <tr>
+        <td><label for="year">
+            Year
+        </label></td>
+        <td><input id="year" type="text" formControlName="year"></td>
+    
+      </tr>
+
+      <tr>
+       <td> <label for="gearbox">
+            Gear-Box
+        </label></td>
+       <td><input id="gearbox" type="text" formControlName="gearbox"></td>
+    
+      </tr>
+    </table>
+      
+
+     
+  
+    <button class="button" type="submit">Add User</button>
+  
+  </form>

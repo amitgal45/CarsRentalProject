@@ -1,0 +1,45 @@
+<div class="row subjectheadernested">
+  <div class="col">
+    <img src="/assets/icons/view-details.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Manage Orders</span>
+  </div>
+  
+  </div>
+
+<button  [routerLink]="['/admin/', { outlets: { list: ['addorder'] } }]">Add Order</button>
+<div class="table-responsive">
+     <table class="table" style="font-size: 11px;">
+         <caption>Car Models</caption>
+<thead>
+ <tr>
+   <th scope="col">Order ID</th>
+   <th scope="col">User ID</th>
+   <th scope="col">Car License Number</th>
+   <th scope="col">StartDate</th>
+   <th scope="col">Estimated Return Date</th>
+   <th scope="col">Return Date</th>
+   <th scope="col">Edit</th>
+   <th scope="col">Delete</th>
+   
+ </tr>
+</thead>
+<!-- מקבל פרמטרים של CAR MODEL ^^
+     ומחזיר *מכוניות*
+-->
+<tbody>
+ <tr *ngFor="let order of orders">
+   <th scope="row">{{order.OrderID}}</th>
+   <td>{{order.UserID}}</td>
+   <td>{{order.CarLicenseNumber}}</td>
+   <td>{{order.StartDate|date:'dd/MM/yyyy'}}</td>
+   <td>{{order.EstimatedReturnDate|date:'dd/MM/yyyy'}}</td>
+   <td>{{order.ReturnDate|date:'dd/MM/yyyy'}}</td>
+
+   <td><img [routerLink]="['/admin/', { outlets: { list: ['editorder', order.OrderID] } }]"src="assets/icons/edit.png"></td>
+
+   <td><img src="assets/icons/delete.png" (click)="deleteOrder(order.OrderID)"></td>
+   
+
+ </tr>
+</tbody>
+     </table>
+   </div>

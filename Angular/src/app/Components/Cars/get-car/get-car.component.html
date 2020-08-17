@@ -1,0 +1,102 @@
+<div class="container2 border" *ngIf="car">
+    
+        <div class="row subjectheader">
+          <div class="col">
+            <img src="/assets/icons/view-details.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Car Details</span>
+
+          </div>
+        </div>
+            <div class="row">
+                <div class="col-4">
+       <div class="carcard">
+        <img class="mx-auto d-block" src="{{car.Image}}" style="height: 150px;width: 200px;"><br/>
+        <table style="margin: auto;">
+            <tr>
+                <td>
+                    Manufacturer:
+                </td>
+                <td>
+                    {{car.manufacturer}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Model:
+                </td>
+                <td>
+                    {{car.model}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Year:
+                </td>
+                <td>
+                    {{car.year}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gear-box:
+                </td>
+                <td>
+                    {{car.gearbox}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Daily Price:
+                </td>
+                <td>
+                    {{car.dailyPrice}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Daily Late Fee:
+                </td>
+                <td>
+                    {{car.dailyLateFee}}
+                </td>
+            </tr>
+        </table>
+       <br/>
+    </div>
+</div>
+        
+    
+    
+
+    <div class="col">
+        Calculate Days of Rent:<br/>
+
+<table>
+    <tr>
+        <td>Start Date</td>
+        <td><input type="date" #startDate></td>
+    </tr>
+    <tr>
+        <td>Return Date</td>
+        <td><input type="date" #endDate></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+      
+        <button (click)="calcDays(startDate.value,endDate.value)">Calculate</button> <br/>
+        Price:
+        <span *ngIf="days">{{days*car.dailyPrice}} NIS for {{days}} Days</span><br/>
+        <button>
+            <a routerLink="/order/{{car.CarID}}" (click)="passDateParams(startDate.value,endDate.value)" class="url">
+                Order Now
+               </a> 
+        </button>
+    </div>
+    
+    
+          </div>
+        
+        </div>

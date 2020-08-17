@@ -1,0 +1,53 @@
+<div class="container2 border">
+  <div class="row subjectheader">
+    <div class="col">
+      <img src="/assets/icons/view-details.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Return Car</span>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col center">
+
+Enter Car License Number To Return The Car<br/>
+<input #searchbox type="text">
+<input type="button" (click)="searchCarOrder(searchbox.value)" value="Search Car">
+
+<div *ngIf="OrdersFound">
+
+    <table class="table" style="font-size: 12px;">
+        <thead>
+            <tr>
+              <th scope="col">Order ID</th>
+              <th scope="col">Car License Number</th>
+              <th scope="col">User Id</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">Estimated Return Date</th>
+              <th scope="col">Days Of Late</th>
+              <th scope="col">Total Days</th>
+              <th scope="col">Total Amount</th>
+              <th scope="col">Return car</th>
+              
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">{{OrdersFound.OrderID}}</th>
+              <td>{{OrdersFound.CarLicenseNumber}}</td>
+              <td>{{OrdersFound.UserID}}</td>
+              <td>{{OrdersFound.StartDate}}</td>
+              <td>{{OrdersFound.EstimatedReturnDate}}</td>
+              <td>{{extrafeeDays}} Days</td>
+              <td>{{totaldays}} Days</td>
+              <td>{{totalamount}} NIS</td>
+              <td (click)="onReturnClick(OrdersFound.CarLicenseNumber,OrdersFound.OrderID)">Click</td>
+
+            </tr>
+          </tbody>
+
+
+    </table>
+    </div>
+  </div>
+</div>
+</div>

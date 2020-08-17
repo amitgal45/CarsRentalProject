@@ -1,0 +1,105 @@
+<div class="row subjectheadernested">
+
+  <div class="col">
+    <img src="/assets/icons/signup.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Add User</span>
+  </div>
+</div>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" *ngIf="user">
+
+    <tr class="form-group">
+      <td>
+      <label for="UserID">
+        User ID
+      </label></td>
+      <td><input id="UserID" type="text" formControlName="UserID" disabled></td>
+    </tr>
+  
+    <tr class="form-group">
+      <td><label for="PassportID">
+        Full Name
+      </label></td>
+      <td><input id="FullName" type="text" formControlName="FullName"></td>
+    </tr>
+
+    <tr class="form-group">
+      <td><label for="PassportID">
+            Passport ID
+        </label></td>
+        <td><input id="PassportID" type="text" formControlName="PassportID" ></td>
+      </tr>
+
+      <tr class="form-group">
+        <td><label for="UserName">
+            Username
+        </label></td>
+        <td><input id="UserName" type="text" formControlName="UserName"></td>
+    
+      </tr>
+
+      <tr>
+        <td><label for="BirthDate">
+            BirthDate
+        </label></td>
+        <td><input id="BirthDate" type="date" formControlName="BirthDate"></td>
+    
+      </tr>
+
+      <tr>
+        <td><label for="Gender">
+            Gender
+        </label></td>
+        <td><select id="Gender" value="{{user.Gender}}" formControlName="Gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          
+          </select></td>
+    
+      </tr>
+
+      
+      <tr>
+        <td><label for="Email">
+            Email
+        </label></td>
+        <td><input id="Email" type="text" formControlName="Email"></td>
+    
+      </tr>
+
+      
+      <tr>
+        <td><label for="Image">
+            Image
+        </label></td>
+        <td><img [src]="imageUrl" style="height:100px;width:100px;">
+        <input type="file" #image accept="image/*" (change)="handleFileInput($event.target.files)" value="imageUrl"></td>
+    
+      </tr>
+
+      
+      <tr>
+        <td><label for="MemberLevel">
+            Member Level
+        </label></td>
+        <td><select id="MemberLevel" value="{{user.MemberLevel}}">
+            <option value="0">Member</option>
+            <option value="1">Employee</option>
+            <option value="2">Admin</option>
+          
+          </select></td>
+    
+      </tr>
+
+      <tr>
+        <td> <label for="Password">
+            Password
+        </label></td>
+       <td> <input id="Password" type="text" formControlName="Password" ></td>
+    
+      </tr>
+
+     
+  
+    <button class="button" type="submit">Edit User</button>
+  
+  </form>

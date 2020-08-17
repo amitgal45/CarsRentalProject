@@ -1,0 +1,50 @@
+<div class="row subjectheadernested">
+  <div class="col">
+    <img src="/assets/icons/view-details.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Edit Order</span>
+  </div>
+  
+  </div>
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)" *ngIf="order">
+
+  
+  <tr class="form-group">
+    <td><label for="CarLicenseNumber">
+      Car License Number
+    </label></td>
+    <td><input id="CarLicenseNumber" type="text" formControlName="CarLicenseNumber"></td>
+  </tr>
+
+  <tr class="form-group">
+      <td><label for="UserID">
+          User ID
+      </label></td>
+      <td><input id="UserID" type="number" formControlName="UserID"></td>
+    </tr>
+
+  <tr class="form-group">
+      <td><label for="StartDate">
+          Start Date
+      </label></td>
+      <td><input id="StartDate" type="date" formControlName="StartDate" ></td>
+    </tr>
+
+    <tr class="form-group">
+      <td><label for="EstimatedReturnDate">
+          Estimated Return Date
+      </label></td>
+      <td><input id="EstimatedReturnDate" type="date" formControlName="EstimatedReturnDate"></td>
+  
+    </tr>
+
+    <tr>
+    <td>  <label for="ReturnDate">
+          Return Date
+      </label></td>
+    <td>  <input id="ReturnDate" type="date" formControlName="ReturnDate"></td>
+  
+    </tr>
+
+    <button class="button" type="submit">Edit Order</button>
+  
+  </form>

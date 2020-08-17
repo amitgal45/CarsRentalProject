@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+.border{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    min-height: 450px;
+    
+}
+
+
+.container2{
+    width: 80%;
+    background-color: white;
+    margin: auto;
+    
+    
+}
+
+.subjectheadernested{
+    background-color: rgb(160, 160, 160);
+    border-bottom: 1px solid rgba(68, 68, 68, 0.808);
+    font-size: 20px;
+    
+    
+  }
+
+
+.subjectheader{
+    background-color: rgb(160, 160, 160);
+    border-bottom: 1px solid rgba(68, 68, 68, 0.808);
+    margin: auto;
+    font-size: 20px;
+    margin: auto;
+  }
+
+  .nav{
+    background-color: rgb(160, 160, 160);
+    border-bottom: 1px solid rgba(68, 68, 68, 0.808);
+    margin: auto;
+    font-size: 20px;
+    margin: auto;
+  }
+
+  .center{
+    text-align: center;
+}

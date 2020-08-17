@@ -1,0 +1,31 @@
+/* .center{
+    text-align: center;
+}
+
+.border{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    min-height: 450px;
+    
+}
+
+
+.container2{
+    width: 80%;
+    background-color: white;
+    margin: auto;
+    
+    
+} */
+
+
+
+
+  .carcard{
+      margin: 10px;
+border:1px solid black;
+     -moz-border-radius: 25px/25px;
+    -webkit-border-radius: 25px 25px;
+    border-radius: 25px/25px;
+    
+  }

@@ -1,0 +1,46 @@
+<div class="row subjectheadernested">
+  <div class="col">
+    <img src="/assets/icons/view-details.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Manage Cars</span>
+  </div>
+</div>
+
+
+<button  [routerLink]="['/admin/', { outlets: { list: ['addcar'] } }]">Add Car </button>
+<div class="table-responsive">
+     <table class="table" style="font-size: 11px;">
+         <caption>Cars Table</caption>
+<thead>
+ <tr>
+    <th scope="col">Image</th>
+   <th scope="col">Car License Number</th>
+   <th scope="col">Car Model ID</th>
+   <th scope="col">Current Km</th>
+   <th scope="col">is Rentable</th>
+   <th scope="col">is Damaged</th>
+   <th scope="col">Edit</th>
+   <th scope="col">Delete</th>
+   
+ </tr>
+</thead>
+<!-- מקבל פרמטרים של CAR MODEL ^^
+     ומחזיר *מכוניות*
+-->
+<tbody>
+ <tr *ngFor="let car of cars">
+   <th scope="row"><img src="{{car.Image}}" onerror="this.src='./assets/icons/defaultuser.png';" class="img-size"></th>
+   <td>{{car.CarLicenseNumber}}</td>
+   <td>{{car.carmodelID}}</td>
+   <td>{{car.currentKm}}</td>
+   <td>{{car.isRentable}}</td>
+   <td>{{car.isDamaged}}</td>
+
+
+   <td><img [routerLink]="['/admin/', { outlets: { list: ['editcar', car.CarLicenseNumber] } }]"src="assets/icons/edit.png"></td>
+
+   <td><img src="assets/icons/delete.png" (click)="deleteCar(car.CarID)" ></td>
+   
+
+ </tr>
+</tbody>
+     </table>
+   </div>

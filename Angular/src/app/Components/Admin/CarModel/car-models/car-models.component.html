@@ -1,0 +1,52 @@
+<div style="max-width: 100%;">
+<div class="row subjectheadernested" >
+  <div class="col">
+  <img src="/assets/icons/view-details.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Manage Car Models</span>
+ </div>
+</div>
+<div class="row " >
+  <div class=" table-responsive" style="margin: auto;">
+    <button  [routerLink]="['/admin/', { outlets: { list: ['addcarmodel'] } }]">Add Car Model</button>
+
+      <table class="table" style="font-size: 11px;">
+          <caption>Car Models</caption>
+ <thead >
+  <tr>
+    <th scope="col">Car Model ID</th>
+    <th scope="col">Manufacturer</th>
+    <th scope="col">Model</th>
+    <th scope="col">dailyPrice</th>
+    <th scope="col">dailyLateFee</th>
+    <th scope="col">Year</th>
+    <th scope="col">GearBox</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+    
+  </tr>
+ </thead>
+ <!-- מקבל פרמטרים של CAR MODEL ^^
+      ומחזיר *מכוניות*
+ -->
+ <tbody>
+  <tr *ngFor="let carmodel of carmodels">
+    <th scope="row">{{carmodel.carmodelID}}</th>
+    <td>{{carmodel.manufacturer}}</td>
+    <td>{{carmodel.model}}</td>
+    <td>{{carmodel.dailyPrice}}</td>
+    <td>{{carmodel.dailyLateFee}}</td>
+    <td>{{carmodel.year}}</td>
+    <td>{{carmodel.gearbox}}</td>
+ 
+    <td><img [routerLink]="['/admin/', { outlets: { list: ['editcarmodel', carmodel.carmodelID] } }]"src="assets/icons/edit.png"></td>
+ 
+    <td><img src="assets/icons/delete.png" (click)="deleteCarModel(carmodel.carmodelID)"></td>
+    
+ 
+  </tr>
+ </tbody>
+      </table>
+    </div>
+ 
+  
+</div>
+</div>

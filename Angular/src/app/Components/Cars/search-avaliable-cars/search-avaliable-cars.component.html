@@ -1,0 +1,99 @@
+
+<div class="container2 border">
+<div class="nav row">
+  <div class="col " >
+    <img src="/assets/icons/carsearch.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Car Search</span>
+  </div>
+  
+</div>  <br/>
+
+    <div class="row" style="margin: 2px;">
+      <div class="col-3">
+      <select (change)="userSelect($event.target.value)" class="browser-default custom-select">
+        <option selected value="0" >Open this select menu</option>
+        <option value="6" >Free Text</option>
+        <option value="1">Manufacturer</option>
+        <option value="2">Model</option>
+        <option value="3">Year</option>
+        <option value="4">Gear</option>
+        <option value="5">Daily Price</option>
+        
+      </select>
+    </div>
+
+    <div class="col-9">
+
+      <input class="form-control" #searchInput type="text" placeholder="Medium input" [(ngModel)]="searchInput.value">
+
+    </div>
+    </div>
+    <br/>
+
+    <div class="table-responsive" style="margin: 2px;max-height: 400px;">
+        <table class="table">
+            <caption>Avaliable Cars</caption>
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Manufacturer</th>
+      <th scope="col">Model</th>
+      <th scope="col">Year</th>
+      <th scope="col">Gear</th>
+      <th scope="col">Daily Price</th>
+      <th scope="col">Branch</th>
+      <th scope="col">Calculate Price</th>
+      <th scope="col">Order Now</th>
+      
+    </tr>
+  </thead>
+ <!-- מקבל פרמטרים של CAR MODEL ^^
+        ומחזיר *מכוניות*
+-->
+  <tbody>
+    <tr *ngFor="let car of AvaliableCars|searchCar:userSearchSelect:searchInput.value" >
+      <td scope="row"><img src="{{car.Image}}" style="height: 100px;width: 100px;"></td>
+      <td class="align-middle">{{car.manufacturer}}</td>
+      <td class="align-middle">{{car.model}}</td>
+      <td class="align-middle">{{car.year}}</td>
+      <td class="align-middle">{{car.gearbox}}</td>
+      <td class="align-middle">{{car.dailyPrice}}</td>
+      <td class="align-middle">{{car.BranchName}}</td>
+      <td class="align-middle">
+        <a (click)="carmodelClick(car)" routerLink="/car/{{car.CarID}}" class="url">
+          <!-- <a (click)="carmodelClick(car)" routerLink="/car/{{car.carmodelID}}" class="url"> -->
+            Calculate Price
+         </a> 
+         </td>
+         <td class="align-middle">
+          <a (click)="carmodelClick(car)" routerLink="/order/{{car.CarID}}" class="url">
+            <!-- <a (click)="carmodelClick(car)" routerLink="/car/{{car.carmodelID}}" class="url"> -->
+            Order Car
+           </a> 
+           </td>
+         
+    </tr>
+  </tbody>
+        </table>
+      </div>
+      <br/>
+      <div class="nav row" style="border-top: 1px solid rgba(68, 68, 68, 0.808);">
+        <div class="col">
+        <img src="/assets/icons/lastclicked.png" style="height: 24px;width: 24px;margin: 5px;"><span class="align-middle"> Last clicks</span></div>  <br/>
+      </div>
+        <div class="row" *ngIf="lastcars" style="margin: 2px;">
+        <div class="col-3 " *ngFor="let lastcar of lastcars" >
+          <div class="card center">
+            <img src="{{lastcar.Image}}" class="rounded-circle" style="height: 100px;width: 100px;margin: auto;border: 1px solid black;margin-top: 10px;"><br/>
+            Manufacturer - {{lastcar.manufacturer}}<br/>
+            Model  - {{lastcar.model}}<br/>
+            Year  - {{lastcar.year}}<br/>
+            GearBox  - {{lastcar.gearbox}}<br/>
+            20% Off Sale only for {{lastcar.dailyPrice}} NIS <br/>
+            <a (click)="carmodelClick(lastcar)" routerLink="/car/{{lastcar.CarID}}" class="url">
+              Order Now
+             </a> 
+          </div>
+         
+        </div>
+      </div>
+    </div>
